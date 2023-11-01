@@ -46,17 +46,6 @@ public class CurrencyService {
     }
 
     public CurrencyPO updateCurrency(String currencyCode, CurrencyUpdateRequestDTO currencyUpdateRequestDTO) {
-//        Optional<CurrencyPO> currency = currencyRepositoryImpl.findCurrencyPOByCode(currencyCode);
-//        if (currency.isPresent()) {
-//                CurrencyPO updateCurrency = currency.get();
-//                updateCurrency.setChName(currencyUpdateRequestDTO.getChName());
-//                updateCurrency.setRate(currencyUpdateRequestDTO.getRate());
-//                updateCurrency.setDescription(currencyUpdateRequestDTO.getDescription());
-//                updateCurrency.setLastModifiedDate(new Date());
-//            return currencyRepositoryImpl.save(updateCurrency);
-//        } else {
-//            throw new ApiNotFoundException("Can't found currency: " + currencyCode);
-//        }
         Optional<CurrencyPO> currency = currencyRepositoryImpl.findCurrencyPOByCode(currencyCode);
 
         return currency.map(existingCurrency -> {
