@@ -17,31 +17,31 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("api/v1.0/coindest")
-public class CoinDestController {
+@RequestMapping("api/v1.0/coindesk")
+public class CoinDeskController {
 
     private final RestTemplate restTemplate = new RestTemplate();
 
     @Value(value = "${coindesk.url}")
-    private String coinDestUrl;
+    private String coinDeskUrl;
 
     final
     CurrencyService currencyService;
 
-    public CoinDestController(CurrencyService currencyService) {
+    public CoinDeskController(CurrencyService currencyService) {
         this.currencyService = currencyService;
     }
 
     @GetMapping(value = "/native-api", produces = "application/json")
-    public ResponseEntity<String> nativeCoinDestApi() {
-        String jsonString = restTemplate.getForObject(coinDestUrl, String.class);
+    public ResponseEntity<String> nativeCoinDeskApi() {
+        String jsonString = restTemplate.getForObject(coinDeskUrl, String.class);
 
         return ResponseEntity.ok(jsonString);
     }
 
     @GetMapping(value = "/transformed-api", produces = "application/json")
-    public ResponseEntity<String> newCoinDestApi() {
-        String jsonString = restTemplate.getForObject(coinDestUrl, String.class);
+    public ResponseEntity<String> newCoinDeskApi() {
+        String jsonString = restTemplate.getForObject(coinDeskUrl, String.class);
         String convertJsonString = convertCoinData(jsonString);
 
         return ResponseEntity.ok(convertJsonString);
