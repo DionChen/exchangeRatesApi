@@ -1,5 +1,12 @@
 # exchangeRatesApi
 
+## 功能簡述:
+1. 呼叫 coindesk API
+2. 呼叫coindesk API,並實作新的 API。此新 API 提供:
+   - 更新時間(時間格式範例:1990/01/01 00:00:00)
+   - 幣別相關資訊(幣別,幣別中文名稱,以及匯率)
+3. 一張幣別與其對應中文名稱的資料表(需附建立 SQL 語法),具有 查詢 / 新增 / 修改 / 刪除 功能 API。
+
 ## Requirements
 
 For building and running the application you need:
@@ -10,15 +17,6 @@ For building and running the application you need:
 ## Run Spring Boot application
 
 ```mvn spring-boot:run```
-
-## 功能簡述:
-1. 呼叫 coindesk API,解析其下行內容與資料轉換,並實作新的 API。
-   coindesk API:https://api.coindesk.com/v1/bpi/currentprice.json
-2. 此新 API 提供:
-   - 更新時間(時間格式範例:1990/01/01 00:00:00)
-   - 幣別相關資訊(幣別,幣別中文名稱,以及匯率)
-3. 建立一張幣別與其對應中文名稱的資料表(需附建立 SQL 語法),並提
-   供 查詢 / 新增 / 修改 / 刪除 功能 API。
 
 ## Explore Rest APIs
 
